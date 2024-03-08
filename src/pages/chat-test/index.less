@@ -1,0 +1,97 @@
+.chatbot-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .conversation-container {
+    font-size: small;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .message {
+    display: flex;
+    align-items: flex-start; // 将头像和文本框顶部对齐
+    margin-bottom: 10px;
+  
+    .message-content {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: small;
+      flex-grow: 1; // 让文本框自动填充剩余空间
+    }
+  }
+
+  .message-right {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start; // 将头像和文本框顶部对齐
+    margin-bottom: 10px;
+  
+    .message-content {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: small;
+      flex-grow: 1; // 让文本框自动填充剩余空间
+    }
+  }
+
+  .avatar-left {
+    height: 80px;
+    width: 80px;
+    margin-right: 8px;
+  } 
+  
+  .avatar-right {
+    height: 80px;
+    width: 80px;
+    margin-left: 10px;
+  }
+  //
+  .choice-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .flexible-option {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .choice-container .at-radio {
+    margin-right: 10px; // 设置选项之间的间距
+  }
+//
+  .bot .message-content {
+    align-self: flex-start;
+  }
+  
+  .user .message-content {
+    align-self: flex-end;
+  }
+  
+  .chatbot-input {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .user-input {
+    font-size: small;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    height: 60px;
+  }
+  
+  .submit-button {
+    font-size: small;
+    margin-left: 10px;
+    margin-bottom: 30px;
+  }
