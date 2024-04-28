@@ -4,7 +4,7 @@ import { View, Text, Button,Image } from '@tarojs/components'
 import './index.less'
 // import Child from './child'
 
-import { AtButton, AtNoticebar, AtFab, AtGrid, AtList, AtListItem, } from 'taro-ui'
+import { AtButton, AtNoticebar, AtFab, AtGrid, AtList, AtListItem,AtIcon } from 'taro-ui'
 
 function Index(){
 
@@ -41,67 +41,77 @@ function Index(){
 // relaunch：关闭所有额面，打开到应用内某个页面
 // getCurrentPages: 获取当前页面信息所用
 
-    const gotoMy=()=>{
+    const gotoUp=()=>{
         Taro.navigateTo({url:'/pages/upload/index'})//?Info=2
       }
 
+    const gotoMy=()=>{
+      Taro.navigateTo({url:'/pages/my/index'})//?Info=2
+    }
+
     return(
       
-      <view>
+      <View className='background'>
         <View className='index'>
           {/* <Image src={require("../../assets/images/4.png")} mode='aspectFit' style='width: 160px;height: 70px;background: #fff;'/> */}
         </View>
 {/* 第一列 */}
-        <View className='at-row'> 
-          <View className='at-col at-col__offset-2'>
-            一键搞定
+        <View className='first'>
+          <View className='first-text'>
+            <View className='first-text-1'>
+              一键搞定
+            </View>
+
+            <View className='first-text-2'>
+              职场回复难题
+            </View>
           </View>
 
-          <AtFab>
+          <Button className='first-avatar-1'>AI</Button>
+
+          <AtFab className='first-avatar-2' color='#000000' onClick={gotoMy}>
             <Text className='at-fab__icon at-icon at-icon-user'></Text>
           </AtFab>
+
         </View>
 {/* 第二列 */}
-        <View className='at-row'>
-          <View className='at-col at-col__offset-2'>
-            职场回复难题
+        <View className='second-background'>
+          <View className='at-row'>
+              <AtNoticebar marquee icon='add-circle' speed= '110' className='second-noticebar'>
+                急，在线等！甲方半夜发疯怎么回？
+              </AtNoticebar>
+
+              <AtNoticebar marquee icon='volume-plux' speed= '110' className='second-noticebar'>
+                跪
+              </AtNoticebar>
+            </View>
+
+          <View className='at-row'>
+            <AtNoticebar marquee icon='eye' speed= '90' className='second-noticebar'>
+              怎么感谢领导的大恩大德
+            </AtNoticebar>
+            <AtNoticebar marquee icon='eye' speed= '90' className='second-noticebar'>
+              领导居然敢PUA我！
+            </AtNoticebar>
+            <AtNoticebar marquee icon='eye' speed= '90' className='second-noticebar'>
+              社恐怎么回复
+            </AtNoticebar>
           </View>
-          <AtButton className='at-col at-col__offset-3' type='secondary' size='small' circle='true'>AI</AtButton>
-        </View>
 
-        <View className='at-row'>
-          <AtNoticebar marquee icon='eye' speed= '110' className='at-noticebar at-col at-col-9'>
-            急，在线等！甲方半夜发疯怎么回？
-          </AtNoticebar>
-          <AtNoticebar marquee icon='eye' speed= '110' className='at-noticebar at-col at-col-3'>
-            跪
-          </AtNoticebar>
-        </View>
+          <View className='at-row'>
+            <AtNoticebar marquee icon='eye' speed= '100' className='second-noticebar'>
+              同时在大群里甩锅怎么办？
+            </AtNoticebar>
+            <AtNoticebar marquee icon='eye' speed= '100' className='second-noticebar'>
+              又被骂了...
+            </AtNoticebar>
+          </View>
 
-        <View className='at-row'>
-          <AtNoticebar marquee icon='eye' speed= '90' className='at-noticebar at-col at-col-5'>
-            怎么感谢领导的大恩大德
-          </AtNoticebar>
-          <AtNoticebar marquee icon='eye' speed= '90' className='at-noticebar at-col at-col-4'>
-            领导居然敢PUA我！
-          </AtNoticebar>
-          <AtNoticebar marquee icon='eye' speed= '90' className='at-noticebar at-col at-col-3'>
-            社恐怎么回复
-          </AtNoticebar>
-        </View>
-
-        <View className='at-row'>
-          <AtNoticebar marquee icon='eye' speed= '100' className='at-noticebar at-col at-col-7'>
-            同时在大群里甩锅怎么办？
-          </AtNoticebar>
-          <AtNoticebar marquee icon='eye' speed= '100' className='at-noticebar at-col at-col-5'>
-            又被骂了...
-          </AtNoticebar>
         </View>
 
 
         <View>
-          <AtButton className='at-button' type='primary' circle='true' onClick={gotoMy}>上传聊天记录截图</AtButton>
+          <AtButton className='main-button' type='primary' circle='true' onClick={gotoUp}>上传聊天记录截图</AtButton>
         </View>
 
         <View className='text2'>
@@ -111,43 +121,49 @@ function Index(){
         <View className='small-list'>
           <AtList>
             <AtListItem
+              className='third-icon'
               title='使用案例'
-              iconInfo={{ size: 25, color: '#78A4FA', value: 'clock', }}
+              iconInfo={{ size: 30, color: '#000000', value: 'clock', }}
             />
           </AtList>
         </View>
 
-        <View>
-          <AtList className='at-list'>
-            <AtListItem className='at-list-item'
-              title='甲方：你是不是听不懂我说话？？？'
-              arrow='right'
-              iconInfo={{ size: 15, color: '#78A4FA', value: 'add', }}
-            />
-            <AtListItem className='at-list-item'
-              title='同事：这次上线事故都是小王自作主张'
-              arrow='right'
-              iconInfo={{ size: 15, color: '#FF4949', value: 'eye', }}
-            />
-            <AtListItem className='at-list-item'
-              title='领导：这个月我们的销售业绩靠你了'
-              arrow='right'
-              iconInfo={{ size: 15, color: '#FF4949', value: 'clock', }}
+        <View className='third-background'>
+
+          <View className='third-case'>
+            <AtIcon className='third-case-icon' value='add-circle' size='25'></AtIcon>
+            <View className='third-case-text'>
+              甲方：你是不是听不懂我说话？？？
+            </View>
+          </View>
+
+          <View className='third-case'>
+            <AtIcon className='third-case-icon' value='eye' size='25' ></AtIcon>
+            <View className='third-case-text'>
+              同事：这次上线事故都是小王自作主张
+            </View>
+          </View>
+
+          <View className='third-case'>
+            <AtIcon className='third-case-icon' value='clock' size='25'></AtIcon>
+            <View className='third-case-text'>
+              领导：这个月我们的销售业绩靠你了
+            </View>
+          </View>
+
+          <AtList className='last-list'>
+            <AtListItem className='last-bar'
+              title='点击查看更多'
+              iconInfo={{ size: 25, color: '#000000', value: 'chevron-down', }}
             />
           </AtList>
+
         </View>
 
         {/* 下面要用到ScrollView */}
-        <View>
-          <AtList>
-            <AtListItem
-              title='点击查看更多'
-              iconInfo={{ size: 25, color: '#78A4FA', value: 'chevron-down', }}
-            />
-          </AtList>
-        </View>
+
         
-      </view>
+      </View>
     )
 }
 
